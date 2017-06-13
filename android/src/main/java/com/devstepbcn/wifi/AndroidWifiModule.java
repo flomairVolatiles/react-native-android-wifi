@@ -139,6 +139,13 @@ public class AndroidWifiModule extends ReactContextBaseJavaModule {
 		} else {
 			conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
 		}
+				  conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
+          conf.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
+          conf.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
+          conf.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
+          conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
+          conf.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
+          conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
 		//Remove the existing configuration for this netwrok
 		List<WifiConfiguration> mWifiConfigList = wifi.getConfiguredNetworks();
 		String comparableSSID = ('"' + ssid + '"'); //Add quotes because wifiConfig.SSID has them
